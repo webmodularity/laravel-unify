@@ -16,6 +16,7 @@ class UnifyServiceProvider extends ServiceProvider
         $configPath = __DIR__ . 'config/unify.php';
         $this->publishes([$configPath => config_path('unify.php')], 'config');
 
+        dd(__DIR__ . 'resources/assets');
         // Assets
         $this->publishes([__DIR__ . 'resources/assets' => public_path('vendor/unify')], 'assets');
     }
