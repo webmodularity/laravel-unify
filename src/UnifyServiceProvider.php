@@ -6,6 +6,11 @@ use Illuminate\Support\ServiceProvider;
 
 class UnifyServiceProvider extends ServiceProvider
 {
+    public function register()
+    {
+        //
+    }
+
     public function boot() {
         // Views
         $viewPath = __DIR__ . 'resources/views';
