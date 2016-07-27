@@ -8,7 +8,7 @@ class UnifyServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__ . '/config/unify.php', 'unify');
     }
 
     public function boot() {
@@ -18,8 +18,7 @@ class UnifyServiceProvider extends ServiceProvider
         $this->publishes([$viewPath => base_path('resources/views/vendor/unify')], 'views');
 
         // Config
-        $configPath = __DIR__ . '/config/unify.php';
-        $this->publishes([$configPath => config_path('unify.php')], 'config');
+        $this->publishes([__DIR__ . '/config/unify.php' => config_path('unify.php')], 'config');
 
         // Assets
         $this->publishes([__DIR__ . '/resources/assets' => public_path('vendor/unify')], 'assets');

@@ -1,9 +1,12 @@
+@inject('unify', 'WebModularity\LaravelUnify\Unify')
+@push('fonts')
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+@endpush
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-    @inject('unify', 'WebModularity\LaravelUnify\Unify')
     <title>@yield('title', config('unify.title', 'Default Page Title'))</title>
 
     <!-- Meta -->
@@ -15,15 +18,15 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- Web Fonts -->
-    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+    @stack('fonts');
 
     <!-- CSS Global Compulsory -->
     <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- CSS Header and Footer -->
-    <link rel="stylesheet" href="assets/css/headers/{{ $unify->getHeaderCss() }}">
-    <link rel="stylesheet" href="assets/css/footers/{{ $unify->getFooterCss() }}">
+    <link rel="stylesheet" href="assets/css/headers/{{ $unify->getHeaderCssFile() }}">
+    <link rel="stylesheet" href="assets/css/footers/{{ $unify->getFooterCssFile() }}">
 
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="assets/plugins/animate.css">
