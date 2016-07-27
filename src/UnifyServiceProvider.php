@@ -9,7 +9,6 @@ class UnifyServiceProvider extends ServiceProvider
     public function boot() {
         // Views
         $viewPath = __DIR__ . 'resources/views';
-        dd($viewPath);
         $this->loadViewsFrom($viewPath, 'unify');
         $this->publishes([$viewPath => base_path('resources/views/vendor/unify')], 'views');
 
