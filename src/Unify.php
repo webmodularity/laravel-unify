@@ -5,7 +5,7 @@ namespace WebModularity\LaravelUnify;
 class Unify {
 
     public function getHeaderCss() {
-        return 'header-v6.css';
+        return 'header-v5.css';
     }
 
     public function getFooterCss() {

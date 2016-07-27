@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-    @inject('unify', 'WebModularity\LaravelUnify\Unify');
+    @inject('unify', 'WebModularity\LaravelUnify\Unify')
     <title>@yield('title', config('unify.title', 'Default Page Title'))</title>
 
     <!-- Meta -->
