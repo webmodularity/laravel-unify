@@ -11,8 +11,8 @@ return [
         'version' => null
     ],
     'theme' => [
-        'color' => null,
-        'dark' => false,
+        'color' => 'blue',
+        'dark' => true,
         'boxed' => false
     ]
 ];
