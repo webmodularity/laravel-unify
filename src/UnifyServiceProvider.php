@@ -2,9 +2,7 @@
 
 namespace WebModularity\LaravelUnify;
 
-use Blade;
 use Illuminate\Support\ServiceProvider;
-use WebModularity\LaravelUnify\Unify;
 
 class UnifyServiceProvider extends ServiceProvider
 {
