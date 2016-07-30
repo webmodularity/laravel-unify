@@ -3,9 +3,9 @@
 return [
     'title' => 'Default Page Title',
     'description' => 'Default page description goes here.',
-    'header_version' => 'v8',
+    'header_version' => null,
     'header_version_style' => null,
-    'footer_version' => 'v1',
+    'footer_version' => null,
     'theme_color' => null,
-    'theme_dark' => true
+    'theme_dark' => false
 ];

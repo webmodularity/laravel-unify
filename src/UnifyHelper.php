@@ -100,6 +100,14 @@ class UnifyHelper {
         return 'footer-' . $versionName . '.css';
     }
 
+    public static function getFooterInclude() {
+        $footerInclude = 'unify::partials.footers.footer';
+        if (!is_null(static::getFooterVersion())) {
+            $footerInclude .= '_' . static::getFooterVersion();
+        }
+        return $footerInclude;
+    }
+
     public static function getThemeColor() {
         return in_array(strtolower(config('unify.theme_color')), static::$validThemeColors) ? strtolower(config('unify.theme_color')) : null;
     }

@@ -59,7 +59,7 @@ use WebModularity\LaravelUnify\UnifyHelper;
 
         @yield('content')
 
-        @include('unify::partials.footers.footer')
+        @include(UnifyHelper::getFooterInclude())
     </div>
 
 @include('unify::partials.sliding_panel')
