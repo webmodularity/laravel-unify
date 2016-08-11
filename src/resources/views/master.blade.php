@@ -1,5 +1,5 @@
 <?php
-use WebModularity\LaravelUnify\UnifyHelper;
+use WebModularity\LaravelUnify\Helpers\UnifyHelper;
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->

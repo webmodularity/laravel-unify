@@ -1,6 +1,6 @@
 <?php
 
-namespace WebModularity\LaravelUnify;
+namespace WebModularity\LaravelUnify\Helpers;
 
 class UnifyHelper {
 
@@ -127,5 +127,14 @@ class UnifyHelper {
 
     public static function hasCustomJs() {
         return file_exists(public_path() . '/js/custom.js');
+    }
+
+    public static function starRating($rating = 5) {
+        $stars = [];
+        for ($i = 1;$i <= 5;$i++) {
+            $class = $rating >= $i ? 'fa fa-star color-yellow' : 'fa fa-star';
+            $stars[] = "<i class='".$class."'></i>";
+        }
+        return implode('', $stars);
     }
 }
