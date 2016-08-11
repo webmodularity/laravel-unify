@@ -137,4 +137,8 @@ class UnifyHelper {
         }
         return implode('', $stars);
     }
+
+    public static function defaultUserImage() {
+        return asset('vendor/unify/img/user.jpg');
+    }
 }
