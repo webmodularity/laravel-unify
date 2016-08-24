@@ -72,7 +72,6 @@ use WebModularity\LaravelUnify\Helpers\UnifyHelper;
 <script src="{{ asset('vendor/unify/plugins/back-to-top.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/smoothScroll.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/jquery.parallax.js') }}"></script>
-<script src="{{ asset('vendor/unify/plugins/backstretch/backstretch-ini.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/wow-animations/js/wow.min.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/sliding-panel/jquery.sliding-panel.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/skrollr/skrollr-ini.js') }}"></script>
