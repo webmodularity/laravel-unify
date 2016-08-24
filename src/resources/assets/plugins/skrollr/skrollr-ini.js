@@ -1,6 +1,6 @@
 $(document).ready(function() {
   if (!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)) {
-  	$.getScript("vendor/unify/plugins/skrollr/dist/skrollr.min.js", function(){
+  	$.getScript("http://jbj.dev/vendor/unify/plugins/skrollr/dist/skrollr.min.js", function(){
       var s = skrollr.init({
         edgeStrategy: "set",
         easing: {
