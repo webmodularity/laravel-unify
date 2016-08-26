@@ -74,7 +74,6 @@ use WebModularity\LaravelUnify\Helpers\UnifyHelper;
 <script src="{{ asset('vendor/unify/plugins/jquery.parallax.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/wow-animations/js/wow.min.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/sliding-panel/jquery.sliding-panel.js') }}"></script>
-<script src="{{ asset('vendor/unify/plugins/skrollr/skrollr-ini.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/fancybox/source/jquery.fancybox.pack.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/owl-carousel/owl-carousel/owl.carousel.js') }}"></script>

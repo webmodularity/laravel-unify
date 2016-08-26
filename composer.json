@@ -1,6 +1,6 @@
 {
   "name": "webmod/laravel-unify",
-  "description": "Unify template package for Laravel 5.",
+  "description": "Unify template package for Laravel 5.3.*",
   "keywords": ["webmodularity", "unify"],
   "license": "proprietary",
   "authors": [
