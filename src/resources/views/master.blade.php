@@ -6,12 +6,12 @@ use WebModularity\LaravelUnify\Helpers\UnifyHelper;
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 <head>
-    <title>@yield('title', config('unify.title'))</title>
+    <title>@yield('title', config('unify.title', 'Page Title'))</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="@yield('description', config('unify.description'))">
+    <meta name="description" content="@yield('description', config('unify.description', ''))">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
@@ -30,12 +30,24 @@ use WebModularity\LaravelUnify\Helpers\UnifyHelper;
     <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/line-icons/line-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/font-awesome/css/font-awesome.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/sliding-panel/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/parallax-slider/css/parallax-slider.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/fancybox/source/jquery.fancybox.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/owl-carousel/owl-carousel/owl.carousel.css') }}">
+
+    @if(UnifyHelper::hasFeature('cube-portfolio'))
+        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css') }}">
+    @endif()
+
+    @if(UnifyHelper::hasFeature('parallax-slider'))
+        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/parallax-slider/css/parallax-slider.css') }}">
+    @endif()
+
+    @if(UnifyHelper::hasFeature('fancybox'))
+        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/fancybox/source/jquery.fancybox.css') }}">
+    @endif()
+
+    @if(UnifyHelper::hasFeature('owl-carousel'))
+        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/owl-carousel/owl-carousel/owl.carousel.css') }}">
+    @endif()
+
     <!-- CSS Theme -->
     <link rel="stylesheet" href="{{ asset('vendor/unify/css/theme-colors/' . UnifyHelper::getThemeColorCssFile()) }}">
 
@@ -55,14 +67,10 @@ use WebModularity\LaravelUnify\Helpers\UnifyHelper;
     <div class="wrapper">
         @include(UnifyHelper::getHeaderInclude())
 
-        @include('unify::partials.promo_block')
-
         @yield('content')
 
         @include(UnifyHelper::getFooterInclude())
     </div>
-
-@include('unify::partials.sliding_panel')
 
 <!-- JS Global Compulsory -->
 <script src="{{ asset('vendor/unify/plugins/jquery/jquery.min.js') }}"></script>
@@ -73,7 +81,6 @@ use WebModularity\LaravelUnify\Helpers\UnifyHelper;
 <script src="{{ asset('vendor/unify/plugins/smoothScroll.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/jquery.parallax.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/wow-animations/js/wow.min.js') }}"></script>
-<script src="{{ asset('vendor/unify/plugins/sliding-panel/jquery.sliding-panel.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/fancybox/source/jquery.fancybox.pack.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/owl-carousel/owl-carousel/owl.carousel.js') }}"></script>
@@ -85,7 +92,6 @@ use WebModularity\LaravelUnify\Helpers\UnifyHelper;
 <script src="{{ asset('vendor/unify/js/app.js') }}"></script>
 <script src="{{ asset('vendor/unify/js/plugins/fancy-box.js') }}"></script>
 <script src="{{ asset('vendor/unify/js/plugins/owl-carousel.js') }}"></script>
-<script src="{{ asset('vendor/unify/js/plugins/style-switcher.js') }}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();

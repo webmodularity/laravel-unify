@@ -7,5 +7,9 @@ return [
     'header_version_style' => null,
     'footer_version' => null,
     'theme_color' => null,
-    'theme_dark' => false
+    'theme_dark' => false,
+    'features' => [
+        'cube-portfolio' => false,
+
+    ]
 ];

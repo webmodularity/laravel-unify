@@ -56,6 +56,15 @@ class UnifyHelper {
         'teal'
     ];
 
+    public static function hasFeature($featureName) {
+        $features = config('unify.features', []);
+        if (isset($features[$featureName]) && !empty($features[$featureName])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public static function getHeaderVersion() {
         return in_array(config('unify.header_version'), static::$validHeaderVersions) ? config('unify.header_version') : null;
     }
