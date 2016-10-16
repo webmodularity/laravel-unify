@@ -10,6 +10,10 @@ return [
     'theme_dark' => false,
     'features' => [
         'cube-portfolio' => false,
-
+        'fancybox' => false,
+        'owl-carousel' => false,
+        'parallax' => false,
+        'parallax-slider' => false,
+        'wow-animations' => false
     ]
 ];
