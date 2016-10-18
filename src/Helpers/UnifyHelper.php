@@ -85,7 +85,7 @@ class UnifyHelper {
     }
 
     public static function getHeaderInclude() {
-        $headerInclude = 'unify::partials.headers.header';
+        $headerInclude = 'unify::headers.header';
         if (!is_null(static::getHeaderVersion())) {
             $headerInclude .= '_' . static::getHeaderVersion();
             if (!is_null(static::getHeaderVersionStyle())) {
@@ -110,7 +110,7 @@ class UnifyHelper {
     }
 
     public static function getFooterInclude() {
-        $footerInclude = 'unify::partials.footers.footer';
+        $footerInclude = 'unify::footers.footer';
         if (!is_null(static::getFooterVersion())) {
             $footerInclude .= '_' . static::getFooterVersion();
         }
