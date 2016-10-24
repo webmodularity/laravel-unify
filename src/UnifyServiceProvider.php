@@ -3,12 +3,16 @@
 namespace WebModularity\LaravelUnify;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Foundation\AliasLoader;
 
 class UnifyServiceProvider extends ServiceProvider
 {
     public function register()
     {
         $this->mergeConfigFrom(__DIR__ . '/config/unify.php', 'unify');
+
+        $loader = AliasLoader::getInstance();
+        $loader->alias('Unify', 'WebModularity\LaravelUnify\Helpers\UnifyHelper::class');
     }
 
     public function boot() {

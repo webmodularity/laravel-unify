@@ -1,7 +1,4 @@
-<?php
-use WebModularity\LaravelUnify\Helpers\UnifyHelper;
-?>
-        <!-- Testimonials v4 -->
+<!-- Testimonials v4 -->
 		<div class="bg-color-light">
 			<div class="container content-md">
 				<div class="headline-center margin-bottom-60">
@@ -22,10 +19,10 @@ use WebModularity\LaravelUnify\Helpers\UnifyHelper;
 						<div class="testimonials-v4 md-margin-bottom-50">
 							<div class="testimonials-v4-in">
 								<p>{!! nl2br(trim($review->review)) !!}</p>
-                                <p>{!! UnifyHelper::starRating($review->rating) !!}</p>
+                                <p>{!! Unify::starRating($review->rating) !!}</p>
 							</div>
                             <a href="{{ $review->author->url }}">
-								<img class="rounded-x" src="{!! $review->author->url_image or UnifyHelper::defaultUserImage() !!}">
+								<img class="rounded-x" src="{!! $review->author->url_image or Unify::defaultUserImage() !!}">
 							</a>
 							<span class="testimonials-author">
                                     <a href="{{ $review->author->url }}">{{ $review->author->name }}</a>
