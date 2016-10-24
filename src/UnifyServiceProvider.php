@@ -12,7 +12,7 @@ class UnifyServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/config/unify.php', 'unify');
 
         $loader = AliasLoader::getInstance();
-        $loader->alias('Unify', 'WebModularity\LaravelUnify\Helpers\UnifyHelper::class');
+        $loader->alias('Unify', \WebModularity\LaravelUnify\Helpers\UnifyHelper::class);
     }
 
     public function boot() {
