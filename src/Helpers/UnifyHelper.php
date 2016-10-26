@@ -86,7 +86,7 @@ class UnifyHelper {
                 foreach ($cssFiles as $cssFile) {
                     echo '<link rel="stylesheet" href="'
                         . asset(static::$assetPath . DIRECTORY_SEPARATOR . $cssFile)
-                        . '">\n';
+                        . '">' . "\n";
                 }
             }
         }
@@ -101,7 +101,7 @@ class UnifyHelper {
                 foreach ($jsFiles as $jsFile) {
                     echo '<script src="'
                         . asset(static::$assetPath . DIRECTORY_SEPARATOR . $jsFile)
-                        . '"></script>\n';
+                        . '"></script>' . "\n";
                 }
             }
         }
