@@ -23,19 +23,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/unify/css/headers/' . Unify::getHeaderCssFile()) }}">
     <link rel="stylesheet" href="{{ asset('vendor/unify/css/footers/' . Unify::getFooterCssFile()) }}">
     <!-- CSS Implementing Plugins -->
-    @if(Unify::hasFeature('cube-portfolio'))
-        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css') }}">
-    @endif()
-    @if(Unify::hasFeature('parallax-slider'))
-        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/parallax-slider/css/parallax-slider.css') }}">
-    @endif()
-    @if(Unify::hasFeature('fancybox'))
-        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/fancybox/source/jquery.fancybox.css') }}">
-    @endif()
-    @if(Unify::hasFeature('owl-carousel'))
-        <link rel="stylesheet" href="{{ asset('vendor/unify/plugins/owl-carousel/owl-carousel/owl.carousel.css') }}">
-    @endif()
+    @stack('css')
     <!-- CSS Theme -->
     <link rel="stylesheet" href="{{ asset('vendor/unify/css/theme-colors/' . Unify::getThemeColorCssFile()) }}">
     @if(Unify::isDark())
@@ -45,7 +33,6 @@
     <!-- CSS Customization -->
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
     @endif
-    @stack('css')
 </head>
 @yield('body', '<body>')
 <div class="wrapper">
@@ -60,51 +47,16 @@
 <script src="{{ asset('vendor/unify/plugins/back-to-top.js') }}"></script>
 <script src="{{ asset('vendor/unify/plugins/smoothScroll.js') }}"></script>
 <!-- JS Implementing Plugins -->
-@if(Unify::hasFeature('parallax'))
-    <script src="{{ asset('vendor/unify/plugins/jquery.parallax.js') }}"></script>
-@endif()
-@if(Unify::hasFeature('wow-animations'))
-    <script src="{{ asset('vendor/unify/plugins/wow-animations/js/wow.min.js') }}"></script>
-@endif()
-@if(Unify::hasFeature('cube-portfolio'))
-    <script src="{{ asset('vendor/unify/plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js') }}"></script>
-@endif()
-@if(Unify::hasFeature('fancybox'))
-    <script src="{{ asset('vendor/unify/plugins/fancybox/source/jquery.fancybox.pack.js') }}"></script>
-@endif()
-@if(Unify::hasFeature('owl-carousel'))
-    <script src="{{ asset('vendor/unify/plugins/owl-carousel/owl-carousel/owl.carousel.js') }}"></script>
-@endif()
+@stack('js')
 <!-- JS Customization -->
 @if(Unify::hasCustomJs())
     <script src="{{ asset('js/custom.js') }}"></script>
 @endif
 <!-- JS Page Level -->
 <script src="{{ asset('vendor/unify/js/app.js') }}"></script>
-@if(Unify::hasFeature('fancybox'))
-    <script src="{{ asset('vendor/unify/js/plugins/fancy-box.js') }}"></script>
-@endif()
-@if(Unify::hasFeature('owl-carousel'))
-    <script src="{{ asset('vendor/unify/js/plugins/owl-carousel.js') }}"></script>
-@endif()
 <script type="text/javascript">
     jQuery(document).ready(function() {
-        App.init();
-        @if(Unify::hasFeature('wow-animations'))
-        new WOW().init();
-        @endif()
-        @if(Unify::hasFeature('parallax'))
-        App.initParallaxBg();
-        @endif()
-        @if(Unify::hasFeature('fancybox'))
-        FancyBox.initFancybox();
-        @endif()
-        @if(Unify::hasFeature('owl-carousel'))
-        OwlCarousel.initOwlCarousel();
-        @endif()
-        @if(Unify::hasFeature('cube-portfolio'))
-        $('#cbp-lightbox').cubeportfolio({});
-        @endif()
+        @stack('jquery-ready')
     });
 </script>
 <!--[if lt IE 9]>

@@ -4,6 +4,7 @@ namespace WebModularity\LaravelUnify\Helpers;
 
 class UnifyHelper {
 
+    static $assetPath = 'vendor/unify';
     static $validHeaderVersions = [
         'v1',
         'v2',
@@ -55,13 +56,54 @@ class UnifyHelper {
         'dark-red',
         'teal'
     ];
+    static $featureCssMap = [
+        'cube-portfolio' => [
+            'plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css',
+            'plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css'
+        ],
+        'fancybox' => 'plugins/fancybox/source/jquery.fancybox.css',
+        'owl-carousel' => 'plugins/owl-carousel/owl-carousel/owl.carousel.css',
+        'parallax-slider' => 'plugins/parallax-slider/css/parallax-slider.css'
+    ];
+    static $featureJsMap = [
+        'cube-portfolio' => 'plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js',
+        'fancybox' => 'plugins/fancybox/source/jquery.fancybox.pack.js',
+        'owl-carousel' => 'plugins/owl-carousel/owl-carousel/owl.carousel.js',
+        'parallax' => 'plugins/jquery.parallax.js',
+        'parallax-slider' => [
+            'plugins/parallax-slider/js/modernizr.js',
+            'plugins/parallax-slider/js/jquery.cslider.js'
+        ],
+        'wow-animations' => 'plugins/wow-animations/js/wow.min.js'
+    ];
 
-    public static function hasFeature($featureName) {
-        $features = config('unify.features', []);
-        if (isset($features[$featureName]) && !empty($features[$featureName])) {
-            return true;
-        } else {
-            return false;
+    public static function printCss($features = []) {
+        foreach ($features as $feature) {
+            if (in_array($feature, array_keys(static::$featureCssMap))) {
+                $cssFiles = is_string(static::$featureCssMap[$feature])
+                    ? [static::$featureCssMap[$feature]]
+                    : static::$featureCssMap[$feature];
+                foreach ($cssFiles as $cssFile) {
+                    echo '<link rel="stylesheet" href="'
+                        . asset(static::$assetPath . DIRECTORY_SEPARATOR . $cssFile)
+                        . '">\n';
+                }
+            }
+        }
+    }
+
+    public static function printJs($features = []) {
+        foreach ($features as $feature) {
+            if (in_array($feature, array_keys(static::$featureJsMap))) {
+                $jsFiles = is_string(static::$featureJsMap[$feature])
+                    ? [static::$featureJsMap[$feature]]
+                    : static::$featureJsMap[$feature];
+                foreach ($jsFiles as $jsFile) {
+                    echo '<script src="'
+                        . asset(static::$assetPath . DIRECTORY_SEPARATOR . $jsFile)
+                        . '"></script>\n';
+                }
+            }
         }
     }
 
