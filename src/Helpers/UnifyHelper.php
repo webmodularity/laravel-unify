@@ -63,7 +63,16 @@ class UnifyHelper {
         ],
         'fancybox' => 'plugins/fancybox/source/jquery.fancybox.css',
         'owl-carousel' => 'plugins/owl-carousel/owl-carousel/owl.carousel.css',
-        'parallax-slider' => 'plugins/parallax-slider/css/parallax-slider.css'
+        'parallax-slider' => 'plugins/parallax-slider/css/parallax-slider.css',
+        'sky-forms' => [
+            'plugins/sky-forms-pro/skyforms/css/sky-forms.css',
+            'plugins/sky-forms-pro/skyforms/custom/custom-sky-forms.css',
+            [
+                '<!--[if lt IE 9]>',
+                'plugins/sky-forms-pro/skyforms/css/sky-forms-ie8.css',
+                '<![endif]-->'
+            ]
+        ]
     ];
     static $featureJsMap = [
         'cube-portfolio' => 'plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js',
@@ -79,30 +88,39 @@ class UnifyHelper {
 
     public static function printCss($features = []) {
         foreach ($features as $feature) {
-            if (in_array($feature, array_keys(static::$featureCssMap))) {
-                $cssFiles = is_string(static::$featureCssMap[$feature])
-                    ? [static::$featureCssMap[$feature]]
-                    : static::$featureCssMap[$feature];
-                foreach ($cssFiles as $cssFile) {
-                    echo '<link rel="stylesheet" href="'
-                        . asset(static::$assetPath . DIRECTORY_SEPARATOR . $cssFile)
-                        . '">' . "\n";
-                }
-            }
+            static::printFeature($feature, 'css');
         }
     }
 
     public static function printJs($features = []) {
         foreach ($features as $feature) {
-            if (in_array($feature, array_keys(static::$featureJsMap))) {
-                $jsFiles = is_string(static::$featureJsMap[$feature])
-                    ? [static::$featureJsMap[$feature]]
-                    : static::$featureJsMap[$feature];
-                foreach ($jsFiles as $jsFile) {
-                    echo '<script src="'
-                        . asset(static::$assetPath . DIRECTORY_SEPARATOR . $jsFile)
-                        . '"></script>' . "\n";
+            static::printFeature($feature, 'js');
+        }
+    }
+
+    public static function printFeature($feature, $type = 'css') {
+        $featureMap = strtolower($type) == 'css'
+            ? static::$featureCssMap
+            : static::$featureJsMap;
+        if (in_array($feature, array_keys($featureMap))) {
+            $files = is_string($featureMap[$feature])
+                ? [$featureMap[$feature]]
+                : $featureMap[$feature];
+            foreach ($files as $file) {
+                $pre = $post = null;
+                if (is_array($file)) {
+                    $pre = array_shift($file);
+                    $post = array_pop($file);
+                    $file = array_shift($file);
                 }
+                $fullFilePath = asset(static::$assetPath . DIRECTORY_SEPARATOR . $file);
+                echo $pre;
+                if (strtolower($type) == 'css') {
+                    echo '<link rel="stylesheet" href="' . $fullFilePath . '">' . "\n";
+                } else {
+                    echo '<script src="' . $fullFilePath . '"></script>' . "\n";
+                }
+                echo $post;
             }
         }
     }
