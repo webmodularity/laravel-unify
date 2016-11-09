@@ -77,10 +77,6 @@ class UnifyHelper {
     static $featureJsMap = [
         'cube-portfolio' => 'plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js',
         'fancybox' => 'plugins/fancybox/source/jquery.fancybox.pack.js',
-        'gmaps' => [
-            'http://maps.google.com/maps/api/js?sensor=true&.js',
-            'plugins/gmap/gmap.js'
-        ],
         'owl-carousel' => 'plugins/owl-carousel/owl-carousel/owl.carousel.js',
         'parallax' => 'plugins/jquery.parallax.js',
         'parallax-slider' => [
@@ -98,7 +94,11 @@ class UnifyHelper {
 
     public static function printJs($features = []) {
         foreach ($features as $feature) {
-            static::printFeature($feature, 'js');
+            if ($feature == 'gmaps') {
+                static::printFeatureGmaps();
+            } else {
+                static::printFeature($feature, 'js');
+            }
         }
     }
 
@@ -117,9 +117,7 @@ class UnifyHelper {
                     $post = array_pop($file);
                     $file = array_shift($file);
                 }
-                $fullFilePath = substr($file, 0, 4) == 'http' || substr($file, 0, 2) == '//'
-                    ? $file
-                    : asset(static::$assetPath . DIRECTORY_SEPARATOR . $file);
+                $fullFilePath = asset(static::$assetPath . DIRECTORY_SEPARATOR . $file);
                 echo $pre;
                 if (strtolower($type) == 'css') {
                     echo '<link rel="stylesheet" href="' . $fullFilePath . '">' . "\n";
@@ -129,6 +127,11 @@ class UnifyHelper {
                 echo $post;
             }
         }
+    }
+
+    public static function printFeatureGmaps() {
+        echo '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&key='. config('services.google.key_browser').'"></script>' . "\n";
+        echo '<script type="text/javascript" src="' . asset(static::$assetPath . DIRECTORY_SEPARATOR . 'plugins/gmap/gmap.js') . '"></script>' . "\n";
     }
 
     public static function getHeaderVersion() {
