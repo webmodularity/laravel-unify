@@ -77,6 +77,7 @@ class UnifyHelper {
     static $featureJsMap = [
         'cube-portfolio' => 'plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js',
         'fancybox' => 'plugins/fancybox/source/jquery.fancybox.pack.js',
+        'gmap' => 'plugins/gmap/gmap.js',
         'owl-carousel' => 'plugins/owl-carousel/owl-carousel/owl.carousel.js',
         'parallax' => 'plugins/jquery.parallax.js',
         'parallax-slider' => [
