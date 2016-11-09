@@ -77,7 +77,10 @@ class UnifyHelper {
     static $featureJsMap = [
         'cube-portfolio' => 'plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js',
         'fancybox' => 'plugins/fancybox/source/jquery.fancybox.pack.js',
-        'gmap' => 'plugins/gmap/gmap.js',
+        'gmaps' => [
+            'https://maps.google.com/maps/api/js?sensor=true',
+            'plugins/gmap/gmap.js'
+        ],
         'owl-carousel' => 'plugins/owl-carousel/owl-carousel/owl.carousel.js',
         'parallax' => 'plugins/jquery.parallax.js',
         'parallax-slider' => [
@@ -114,7 +117,9 @@ class UnifyHelper {
                     $post = array_pop($file);
                     $file = array_shift($file);
                 }
-                $fullFilePath = asset(static::$assetPath . DIRECTORY_SEPARATOR . $file);
+                $fullFilePath = substr($file, 0, 4) == 'http' || substr($file, 0, 2) == '//'
+                    ? $file
+                    : asset(static::$assetPath . DIRECTORY_SEPARATOR . $file);
                 echo $pre;
                 if (strtolower($type) == 'css') {
                     echo '<link rel="stylesheet" href="' . $fullFilePath . '">' . "\n";
