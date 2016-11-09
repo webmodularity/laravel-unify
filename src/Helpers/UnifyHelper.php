@@ -78,7 +78,7 @@ class UnifyHelper {
         'cube-portfolio' => 'plugins/cube-portfolio/cubeportfolio/js/jquery.cubeportfolio.min.js',
         'fancybox' => 'plugins/fancybox/source/jquery.fancybox.pack.js',
         'gmaps' => [
-            'https://maps.google.com/maps/api/js?sensor=true',
+            'https://maps.google.com/maps/api/js?sensor=true&.js',
             'plugins/gmap/gmap.js'
         ],
         'owl-carousel' => 'plugins/owl-carousel/owl-carousel/owl.carousel.js',
@@ -124,7 +124,7 @@ class UnifyHelper {
                 if (strtolower($type) == 'css') {
                     echo '<link rel="stylesheet" href="' . $fullFilePath . '">' . "\n";
                 } else {
-                    echo '<script src="' . $fullFilePath . '"></script>' . "\n";
+                    echo '<script type="text/javascript" src="' . $fullFilePath . '"></script>' . "\n";
                 }
                 echo $post;
             }
