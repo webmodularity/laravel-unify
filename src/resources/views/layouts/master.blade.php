@@ -41,19 +41,19 @@
     @include(Unify::getFooterInclude())
 </div>
 <!-- JS Global Compulsory -->
-<script src="{{ asset('vendor/unify/plugins/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/unify/plugins/jquery/jquery-migrate.min.js') }}"></script>
-<script src="{{ asset('vendor/unify/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('vendor/unify/plugins/back-to-top.js') }}"></script>
-<script src="{{ asset('vendor/unify/plugins/smoothScroll.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/unify/plugins/jquery/jquery.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/unify/plugins/jquery/jquery-migrate.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/unify/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/unify/plugins/back-to-top.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/unify/plugins/smoothScroll.js') }}"></script>
 <!-- JS Implementing Plugins -->
 @yield('js')
 <!-- JS Customization -->
 @if(Unify::hasCustomJs())
-    <script src="{{ asset('js/custom.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
 @endif
 <!-- JS Page Level -->
-<script src="{{ asset('vendor/unify/js/app.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/unify/js/app.js') }}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
@@ -62,9 +62,9 @@
     });
 </script>
 <!--[if lt IE 9]>
-<script src="{{ asset('vendor/unify/plugins/respond.js') }}"></script>
-<script src="{{ asset('vendor/unify/plugins/html5shiv.js') }}"></script>
-<script src="{{ asset('vendor/unify/plugins/placeholder-IE-fixes.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/unify/plugins/respond.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/unify/plugins/html5shiv.js') }}"></script>
+<script type="text/javascript" src="{{ asset('vendor/unify/plugins/placeholder-IE-fixes.js') }}"></script>
 <![endif]-->
 </body>
 </html>
