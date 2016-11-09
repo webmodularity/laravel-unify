@@ -46,14 +46,13 @@
 <script type="text/javascript" src="{{ asset('vendor/unify/plugins/bootstrap/js/bootstrap.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/unify/plugins/back-to-top.js') }}"></script>
 <script type="text/javascript" src="{{ asset('vendor/unify/plugins/smoothScroll.js') }}"></script>
-<!-- JS Implementing Plugins -->
+<!-- JS Page Level -->
+<script type="text/javascript" src="{{ asset('vendor/unify/js/app.js') }}"></script>
 @yield('js')
 <!-- JS Customization -->
 @if(Unify::hasCustomJs())
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
 @endif
-<!-- JS Page Level -->
-<script type="text/javascript" src="{{ asset('vendor/unify/js/app.js') }}"></script>
 <script type="text/javascript">
     jQuery(document).ready(function() {
         App.init();
