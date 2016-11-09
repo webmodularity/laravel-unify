@@ -130,7 +130,7 @@ class UnifyHelper {
     }
 
     public static function printFeatureGmaps() {
-        echo '<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&key='. config('services.google.key_browser').'"></script>' . "\n";
+        echo '<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key='. config('services.google.key_browser').'"></script>' . "\n";
         echo '<script type="text/javascript" src="' . asset(static::$assetPath . DIRECTORY_SEPARATOR . 'plugins/gmap/gmap.js') . '"></script>' . "\n";
     }
 
