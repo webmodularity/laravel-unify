@@ -83,6 +83,20 @@ class UnifyHelper {
             'plugins/parallax-slider/js/modernizr.js',
             'plugins/parallax-slider/js/jquery.cslider.js'
         ],
+        'sky-forms' => [
+            'plugins/sky-forms-pro/skyforms/js/jquery.form.min.js',
+            'plugins/sky-forms-pro/skyforms/js/jquery.validate.min.js',
+            [
+                '<!--[if lt IE 9]>',
+                'plugins/sky-forms-pro/skyforms/js/sky-forms-ie8.js',
+                '<![endif]-->'
+            ],
+            [
+                '<!--[if lt IE 10]>',
+                'plugins/sky-forms-pro/skyforms/js/jquery.placeholder.min.js',
+                '<![endif]-->'
+            ]
+        ],
         'wow-animations' => 'plugins/wow-animations/js/wow.min.js'
     ];
 
