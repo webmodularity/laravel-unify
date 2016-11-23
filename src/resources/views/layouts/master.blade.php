@@ -48,7 +48,7 @@
 <script type="text/javascript" src="{{ asset('vendor/unify/plugins/smoothScroll.js') }}"></script>
 <!-- JS Page Level -->
 <script type="text/javascript" src="{{ asset('vendor/unify/js/app.js') }}"></script>
-@push('js')
+@stack('js')
 <!-- JS Customization -->
 @if(Unify::hasCustomJs())
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
@@ -57,7 +57,7 @@
     jQuery(document).ready(function() {
         App.init();
 
-        @push('jquery-ready')
+        @stack('jquery-ready')
     });
 </script>
 <!--[if lt IE 9]>
