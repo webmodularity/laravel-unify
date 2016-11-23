@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/unify/css/headers/' . Unify::getHeaderCssFile()) }}">
     <link rel="stylesheet" href="{{ asset('vendor/unify/css/footers/' . Unify::getFooterCssFile()) }}">
     <!-- CSS Implementing Plugins -->
-    @yield('css')
+    @stack('css')
     <!-- CSS Theme -->
     <link rel="stylesheet" href="{{ asset('vendor/unify/css/theme-colors/' . Unify::getThemeColorCssFile()) }}">
     @if(Unify::isDark())
@@ -48,7 +48,7 @@
 <script type="text/javascript" src="{{ asset('vendor/unify/plugins/smoothScroll.js') }}"></script>
 <!-- JS Page Level -->
 <script type="text/javascript" src="{{ asset('vendor/unify/js/app.js') }}"></script>
-@yield('js')
+@push('js')
 <!-- JS Customization -->
 @if(Unify::hasCustomJs())
     <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
@@ -57,7 +57,7 @@
     jQuery(document).ready(function() {
         App.init();
 
-        @yield('jquery-ready')
+        @push('jquery-ready')
     });
 </script>
 <!--[if lt IE 9]>

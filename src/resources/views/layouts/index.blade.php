@@ -1,14 +1,14 @@
 @extends('unify::layouts.master')
 
-@section('css')
+@push('css')
 {{ Unify::printCss(['parallax-slider', 'owl-carousel']) }}
-@endsection()
+@endpush
 
-@section('js')
+@push('js')
 {{ Unify::printJs(['parallax-slider', 'owl-carousel']) }}
-@endsection()
+@endpush
 
-@section('jquery-ready')
+@push('jquery-ready')
 
     //Owl Clients v1
     jQuery(".owl-clients-v1").owlCarousel({
@@ -33,7 +33,7 @@
     // time between transitions
     });
 
-@endsection
+@endpush
 
 @section('content')
     Default Page
